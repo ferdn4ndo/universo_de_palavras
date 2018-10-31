@@ -1,6 +1,6 @@
 <?
 #Inclui a classe de tratamento do HTML
-include(__DIR__."/class/pharse/pharse.php");
+include(__DIR__."/dist/php/pharse/pharse.php");
 
 #Funções utilizadas
 

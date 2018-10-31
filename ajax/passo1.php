@@ -7,11 +7,7 @@ $ReturnArray = [
 	"sucesso" => 1,
 	"msg" => '',
 	"dados" => [],
-	// "post" => $_POST,
 ];
-
-#DEBUG!
-if(!isset($_POST['txtPalavra'])) $_POST['txtPalavra'] = $_GET['w'];
 
 #Verifica se a palavra foi informada
 if(!isset($_POST['txtPalavra'])){
@@ -26,12 +22,8 @@ if(!isset($_POST['txtPalavra'])){
 	#Insere a palavra de retorno no objeto
 	$ReturnArray["dados"]["palavra"] = $Palavra;
 
-	#Prepara a URL
+	#Prepara a URL e pega o código fonte da página
 	$URL = "https://dicionariocriativo.com.br/".urlencode($Palavra);
-	#Informa a URL no retorno do objeto (útil para debug)
-	$ReturnArray["dados"]["url"] = $URL;
-
-	#Pega o código fonte da página
 	$URLContent = getUrlContent($URL);
 
 	#Prepara o parser
@@ -54,11 +46,8 @@ if(!isset($_POST['txtPalavra'])){
 			if($PalavraTexto != $Palavra) $ReturnArray["dados"]["relacionadas"][] = $PalavraTexto;
 		}
 	}
-	
-	// var_dump($ReturnArray);
 }
 
 #Retorna o JSON
 echo json_encode($ReturnArray);
-
 ?>
