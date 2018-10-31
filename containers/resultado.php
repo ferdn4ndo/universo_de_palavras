@@ -23,12 +23,8 @@
 				<!-- Parte 2 - Gráfico -->
 				<h2 class="mt-2">Gráfico de ocorrências</h2>
 				<canvas class="my-4" id="cnvGrafico" width="900" height="380"></canvas>
-				
-				<!-- Parte 3 - Grafo -->
-				<!-- <h2>Grafo</h2>
-				<div id="divGrafo"></div> -->
 
-				<!-- Parte 4 - Tabela -->	
+				<!-- Parte 3 - Tabela -->	
 				<div id="tblToolbar">			
 					<h2>Tabela de ocorrências</h2>
 				</div>

@@ -2,10 +2,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Status</h5>
-				<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button> -->
+				<h5 class="modal-title">Criando universo!</h5>
 			</div>
 			<div class="modal-body">
 				<p id="textoStatus">Estamos buscando a palavra, não deve demorar...</p>
@@ -45,10 +42,6 @@
 				</table>
 				<small>Por favor, aguarde até o final do processo para verificar os resultados.</small>
 			</div>
-			<!-- <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div> -->
 		</div>
 	</div>
 </div>
