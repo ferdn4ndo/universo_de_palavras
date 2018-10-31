@@ -8,7 +8,7 @@
 				</button> -->
 			</div>
 			<div class="modal-body">
-				<p id="textoStatus">Sua busca está sendo processada...</p>
+				<p id="textoStatus">Estamos buscando a palavra, não deve demorar...</p>
 				<div class="progress">
 					<div id="statusProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 				</div>
@@ -24,12 +24,12 @@
 						<tr>
 							<th scope="row">1</th>
 							<td>Busca da palavra primária</td>						
-							<td class="text-center"><span id="statusPasso1" class="badge badge-pill badge-success pull-right">Sucesso!</span></td>
+							<td class="text-center"><span id="statusPasso1" class="badge badge-pill badge-primary pull-right">Executando...</span></td>
 						</tr>
 						<tr>
 							<th scope="row">2</th>
 							<td>Busca das palavras relacionadas</td>
-							<td class="text-center"><span id="statusPasso2" class="badge badge-pill badge-primary pull-right">Executando...</span></td>
+							<td class="text-center"><span id="statusPasso2" class="badge badge-pill badge-secondary pull-right">Na fila</span></td>
 						</tr>
 						<tr>
 							<th scope="row">3</th>

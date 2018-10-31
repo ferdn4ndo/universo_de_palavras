@@ -28,16 +28,18 @@
 				<!-- <h2>Grafo</h2>
 				<div id="divGrafo"></div> -->
 
-				<!-- Parte 4 - Tabela -->				
-				<h2>Tabela de ocorrências</h2>
+				<!-- Parte 4 - Tabela -->	
+				<div id="tblToolbar">			
+					<h2>Tabela de ocorrências</h2>
+				</div>
 				<div class="table-responsive">
-					<table 	id="tblOcorrencias" 
+					<table 	id="tblRelacoes" 
 							class="table table-striped table-sm"
-							data-toggle="tblOcorrencias"
+							data-toggle="tblRelacoes"
 							data-height="460"
+							data-toolbar="#tblToolbar"
 							data-pagination="true"
 							data-search="true"
-							data-show-export="true"
 							data-sort-name="id"
                				data-sort-order="asc">
 						<thead>
