@@ -21,9 +21,8 @@ $("#frmBuscar" ).submit(function( event ) {
 });
 
 $("#btnTentarNovamente").click(function() {
-	// $('#btnEnviar').prop('disabled', false);
-	resetaBusca();
-	// mostraContent('buscar');
+	var palavra = $('#txtPalavra').val();
+	resetaBusca(palavra);
 });
 
 $("#btnProcurarNav").click(function() {
@@ -38,7 +37,7 @@ $("#btnProcurarNav").click(function() {
 		];
 
 		//Limpa os resultados
-		resetaBusca();
+		resetaBusca(palavra);
 
 		//Inicia o passo 1
 		passo1(dados);
