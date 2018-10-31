@@ -3,7 +3,7 @@
 		<form class="" id="frmBuscar" action="#" method="POST">
 			<div class="row">
 				<div class="col-12">
-					<img class="m-2" src="img/logo.svg" alt="" width="72" height="72">
+					<img class="m-2" src="img/logo.svg" alt="" width="200" height="200">
 				</div>
 			</div>
 			<div class="row">
