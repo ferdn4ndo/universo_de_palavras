@@ -20,9 +20,9 @@ var resultTabela = null;
  */
 function alteraTexto(elementId, text){
 	if(text == $('#'+elementId).text()) return false;
-	$('#'+elementId).animate({'opacity': 0}, 1000, function () {
+	$('#'+elementId).animate({'opacity': 0}, 250, function () {
 		$(this).text(text);
-	}).animate({'opacity': 1}, 1000);
+	}).animate({'opacity': 1}, 250);
 	return true;
 }
 
