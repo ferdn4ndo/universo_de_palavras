@@ -1,10 +1,26 @@
 <?
-#Inclui a classe de tratamento do HTML
+###############################################################################################################################
+# CONFIGURAÇÕES
+###############################################################################################################################
+header('Content-Type: text/html; charset=utf-8'); //Define que todo retorno do PHP será em HTML e UTF-8
+
+###############################################################################################################################
+# IMPORTAÇÃO DAS CLASSES
+###############################################################################################################################
 include(__DIR__."/dist/php/pharse/pharse.php");
 
-#Funções utilizadas
+###############################################################################################################################
+# FUNÇÕES
+###############################################################################################################################
 
-#Retorna o código fonte da URL (baseado na resposta do usuário qrworld.net de 11/11/2014 em http://php.net/manual/pt_BR/book.curl.php)
+/**
+ * Retorna o código fonte da URL (baseado na resposta do usuário qrworld.net de
+ * 11/11/2014 em http://php.net/manual/pt_BR/book.curl.php)
+ *
+ * @param      string          $url    A URL a ser baixada
+ *
+ * @return     string|boolean  Retorna uma string com o código fonte da URL se obteve sucesso, falso se falhou.
+ */
 function getUrlContent($url){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);

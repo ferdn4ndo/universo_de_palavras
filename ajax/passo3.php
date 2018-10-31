@@ -57,7 +57,7 @@ if(!isset($_POST['nuvem'])){
 	#Prepara o retorno do gráfico
 	#Fonte: http://www.chartjs.org/samples/latest/charts/bar/horizontal.html
 	#		http://www.chartjs.org/samples/latest/scales/linear/min-max.html
-	$ChartData = [
+	$DadosGrafico = [
 		'type' => 'horizontalBar',
 		'data' => [
 			'labels' => [],
@@ -68,9 +68,6 @@ if(!isset($_POST['nuvem'])){
 					'borderColor' => '#007bff',
 					'borderWidth' => 1,
 					'pointBackgroundColor' => '#007bff',
-					// 'backgroundColor' => 'color(window.chartColors.red).alpha(0.5).rgbString()',
-					// 'borderColor' => 'window.chartColors.red',
-					// 'borderWidth' => 1,
 					'data' => []
 				]
 			]
@@ -86,12 +83,6 @@ if(!isset($_POST['nuvem'])){
 				'display' => 0,
 			],
 			'scales' => [
-				// 'yAxes' => [
-				// 	'ticks' => [
-				// 		'min' => 10,
-				// 		'max' => 50
-				// 	]
-				// ],
 				'xAxes' => [
 					[
 						'ticks' => [
@@ -112,18 +103,18 @@ if(!isset($_POST['nuvem'])){
 	#Fonte: https://stackoverflow.com/questions/3720096/get-the-first-n-elements-of-an-array
 	$NuvemCortada = array_slice($Palavras, 0, $MaximoItensGrafico, true);
 	foreach ($NuvemCortada as $PalavraNuvem) {
-		$ChartData['data']['labels'][] = $PalavraNuvem;
-		$ChartData['data']['datasets'][0]['data'][] = $NuvemOrdenada[$PalavraNuvem];
+		$DadosGrafico['data']['labels'][] = $PalavraNuvem;
+		$DadosGrafico['data']['datasets'][0]['data'][] = $NuvemOrdenada[$PalavraNuvem];
 	}
 
 	#Atualiza o máximo e mínimo da barra
-	$ValorMax = $ChartData['data']['datasets'][0]['data'][0];
-	$ValorMin = $ChartData['data']['datasets'][0]['data'][$MaximoItensGrafico-1];
-	$ChartData['options']['scales']['xAxes'][0]['ticks']['min'] = ($ValorMin > $FaixaAcimaAbaixo) ? ($ValorMin - $FaixaAcimaAbaixo) : 0;
-	$ChartData['options']['scales']['xAxes'][0]['ticks']['max'] = $ValorMax + $FaixaAcimaAbaixo;
+	$ValorMax = $DadosGrafico['data']['datasets'][0]['data'][0];
+	$ValorMin = $DadosGrafico['data']['datasets'][0]['data'][$MaximoItensGrafico-1];
+	$DadosGrafico['options']['scales']['xAxes'][0]['ticks']['min'] = ($ValorMin > $FaixaAcimaAbaixo) ? ($ValorMin - $FaixaAcimaAbaixo) : 0;
+	$DadosGrafico['options']['scales']['xAxes'][0]['ticks']['max'] = $ValorMax + $FaixaAcimaAbaixo;
 	
 	#Salva o retorno do gráfico
-	$ReturnArray['dados']['grafico'] = $ChartData;
+	$ReturnArray['dados']['grafico'] = $DadosGrafico;
 
 	###############################################################################################################################
 	# DADOS DA TABELA

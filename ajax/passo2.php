@@ -41,11 +41,8 @@ if(!isset($_POST['relacionadas'])){
 		#Pega o título retornado para checar se houveram resultados
 		$Titulo = $Parser('meta[property="og:title"]',0)->attributes['content'];
 		$ReturnArray["dados"]["titulo"] = $Titulo;
-		if(substr($Titulo, 0, 14) == 'Sem resultados'){
-			// Informa o erro
-			// $ReturnArray["sucesso"] = 0;
-			// $ReturnArray["msg"] = "Não foram encontrados resultados para a palavra '$Palavra'";
-		} else {
+		if(substr($Titulo, 0, 14) != 'Sem resultados'){
+			#Se houveram resultados, pega as palavras relacionadas
 			$DivPalavrasRel = $Parser('#analogico',0);
 			$PalavrasFilhas = $DivPalavrasRel('li a');
 			foreach ($PalavrasFilhas as $PalavraFilhaRelacionada) {

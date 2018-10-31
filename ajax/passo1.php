@@ -37,6 +37,7 @@ if(!isset($_POST['txtPalavra'])){
 		$ReturnArray["sucesso"] = 0;
 		$ReturnArray["msg"] = "Não foram encontrados resultados para a palavra '$Palavra'";
 	} else {
+		#Se houveram resultados, pega as palavras relacionadas
 		$DivPalavrasRel = $Parser('#analogico',0);
 		$PalavrasRelacionadas = $DivPalavrasRel('li a');
 		foreach ($PalavrasRelacionadas as $PalavraRelacionada) {
