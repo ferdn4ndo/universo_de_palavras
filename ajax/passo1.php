@@ -35,7 +35,7 @@ if(!isset($_POST['txtPalavra'])){
 	if(substr($Titulo, 0, 14) == 'Sem resultados'){
 		#Informa o erro
 		$ReturnArray["sucesso"] = 0;
-		$ReturnArray["msg"] = "Não foram encontrados resultados para a palavra '$Palavra'";
+		$ReturnArray["msg"] = "Não foram encontrados resultados para a palavra '$Palavra'. Tem certeza que ela foi digitada corretamente? Nomes próprios e palavras estrangeiras não funcionam. Experimente substantivos e adjetivos (ex: amor, construir).";
 	} else {
 		#Se houveram resultados, pega as palavras relacionadas
 		$DivPalavrasRel = $Parser('#analogico',0);

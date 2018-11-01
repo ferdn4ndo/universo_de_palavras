@@ -9,12 +9,11 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<h1 class="h3 mb-3 font-weight-normal">Ocorreu um erro!</h1>
+				<h1 class="h3 mb-3 font-weight-normal">Ooops!</h1>
 			</div>
 		</div>
 		<div class="row my-2">
 			<div class="col-12">
-				<p>Parece que ocorreu um erro ao processar sua solicitação. </p>
 				<span id="msgErro"></span>
 			</div>
 			
