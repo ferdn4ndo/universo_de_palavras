@@ -231,7 +231,7 @@ function atualizaPasso(passo){
 	if(!(passo in dicPassos)){
 		msgErro('Passo não encontrado no dicionário ('+passo+').');
 		return false;
-	} 
+	}
 
 	//Define os passos anteriores ao atual como 'finalizado'
 	for (var i = 1; i < passo; i++) atualizaStatus(i, 'finalizado');
@@ -423,6 +423,30 @@ function geraGrafico(dados){
 	});
 }
 
+/**
+ * Função para gerar uma nova busca a partir da tela dos resultados
+ */
+function novaBusca(){
+	//Pega a palavra da caixa e checa se ela está vazia
+	var palavraNova = $('#txtProcurarNav').val();
+	if(palavraNova != ""){
+		//Prepara os dados (simula o serializeArray)
+		var dados = [
+			{
+				name: 'txtPalavra',
+				value: palavraNova,
+			}
+		];
+
+		//Limpa os resultados atuais e inicia o passo um com a nova palavra
+		resetaBusca(palavraNova);
+		passo1(dados);
+	} else {
+		//Se está vazia, foca na caixa de texto
+		$('#txtProcurarNav').focus();
+	}
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // EVENTOS DOM
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -458,24 +482,18 @@ $("#btnTentarNovamente").click(function() {
  * [CONTENT RESULTADO] Evento do botão de nova busca
  */
 $("#btnProcurarNav").click(function() {
-	//Pega a palavra da caixa e checa se ela está vazia
-	var palavraNova = $('#txtProcurarNav').val();
-	if(palavraNova != ""){
-		//Prepara os dados (simula o serializeArray)
-		var dados = [
-			{
-				name: 'txtPalavra',
-				value: palavraNova,
-			}
-		];
+	//Realiza uma nova busca
+	novaBusca();
+});
 
-		//Limpa os resultados atuais e inicia o passo um com a nova palavra
-		resetaBusca(palavraNova);
-		passo1(dados);
-	} else {
-		//Se está vazia, foca na caixa de texto
-		$('#txtProcurarNav').focus();
-	}
+/**
+ * [CONTENT RESULTADO] Evento que ocorre ao pressionar enter na caixa de busca do resultado
+ */
+ $("#txtProcurarNav").on('keyup', function (e) {
+ 	//Checa se a tecla pressionada é enter (13)
+ 	if (e.keyCode == 13) {
+        novaBusca();
+    }
 });
 
 /**
