@@ -127,3 +127,15 @@ Assim, a árvore de páginas ficou estruturada como a exibida abaixo. Cada arqui
  	- [js/custom.js](https://github.com/ferdn4ndo/universo_de_palavras/tree/master/dist/js/custom.js) -> arquivo base de JS da página, responsável por fazer toda a tratativa dos eventos (adicionando escutas, fazendo as requisições e definindo funções).
  	- Os demais arquivos dentro de dist são pertencentes as bibliotecas de origem e não foram alterados.
  - [img/](https://github.com/ferdn4ndo/universo_de_palavras/tree/master/img) -> pasta onde são armazenadas as imagens (logo, ícone de favorito e imagem de erro)
+
+## Considerações finais
+
+Durante a execução do trabalho foram encontrados dois problemas:
+
+### 1 - Certificado da hospedagem
+
+Como estou utilizando um servidor particular onde não foi instalado um certificado SSL, tive que desabilitar o uso do protocolo de segurança nas requisições realizadas via cURL. Isto implica em uma brecha de segurança já que todo o tráfego pode ser interceptado. Em uma aplicação em produção, isto deveria ser corrigido com a instalação de um certificado válido.
+
+### 2 - Bug na busca nos resultados
+
+Depois de realizar uma busca bem sucedida e já se encontrar na página de resultados, ao informar um novo texto para busca o status dos passos anteriores não é redefinido para "na fila", embora o código esteja correto ([js/custom.js](https://github.com/ferdn4ndo/universo_de_palavras/tree/master/dist/js/custom.js):243). Ao que indica, a função dentro do laço for nesta linha não é chamada, embora executando o código JS manualmente (simulando a variável 'passo'), as chamadas ocorrem. Uma abordagem para solução seria usar alternativas ao laço *for*, talvez com objetos de iteração, *promises* ou instanciação de *prototypes*.
